@@ -50,7 +50,7 @@ for text_url, title in zip(text_url_list, title_list):
             text_list = text_tree.xpath('.//div[@class="List"]//div[@class="List-item"][%d]//div[@class="RichContent '
                                         'RichContent--unescapable"]//span[@class="RichText ztext '
                                         'CopyrightRichText-richText"]//text()' % Num)
-            title = title.replace('?', "？")
+            title = title.replace('?', "？").replace(" / ", '或者')
             with open("./知乎文章/%s.doc" % title, 'at', encoding='utf-8') as fp:
                 fp.truncate(0)
                 fp.write(title+'\n')
